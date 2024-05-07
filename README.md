@@ -15,7 +15,7 @@ This Python script searches for specific images on the screen and clicks on them
 - Win32con (`win32con`)
 
 ## Usage
-1. Clone the repository to your local machine. (Or click on code, then download as zip.)
+1. Clone the repository to your local machine. (Or click on code, then download zip.)
 2. Ensure you have all the required libraries installed. You can install them using pip: pip install opencv-python numpy pyautogui keyboard pywin32
 3. Replace the paths in the `image_paths` list with the paths to your actual images.
 4. Run the script using command prompt
