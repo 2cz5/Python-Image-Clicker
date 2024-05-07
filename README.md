@@ -1,5 +1,7 @@
 # Image Search and Click Automation
 
+## (If you enjoy this scipt, download it, or find it interesting in any way please conisder giving the repo a star. It will help more people find it, and help the community in improving it.)
+
 ## Description
 This Python script searches for specific images on the screen and clicks on them if found. It can be useful for automating tasks where specific images need to be located and interacted with on the screen, such as in game automation or UI testing.
 
