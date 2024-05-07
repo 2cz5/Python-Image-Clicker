@@ -2,6 +2,25 @@
 
 ## (If you enjoy this scipt, download it, or find it interesting in any way please conisder giving the repo a star. It will help more people find it, and help the community in improving it.)
 
+# Changelog
+[v1.1] - 2024-05-07
+Added
+
+    1.Modularized the code into smaller functions for better organization and readability.
+    2.Added error handling to gracefully handle potential exceptions during image processing.
+    3.Added documentation comments (docstrings) to explain the functionality of each function.
+    4.Optimized certain parts of the code for better performance.
+
+Changed
+
+    1.Refactored the main loop to improve readability and maintainability.
+    2.Cleaned up unnecessary comments and redundant code.
+
+Removed
+
+    3.Removed redundant comments and unnecessary print statements.
+
+
 ## Description
 This Python script searches for specific images on the screen and clicks on them if found. It can be useful for automating tasks where specific images need to be located and interacted with on the screen, such as in game automation or UI testing.
 
