@@ -18,13 +18,13 @@ def minimize_cmd_window():
         pass  # If win32gui module is not available, ignore and proceed
 
 # Function to search for images on the screen and click on them if found
-def search_and_click(images, threshold=0.8, click_delay=1, killswitch_key='q'):
+def search_and_click(images, threshold=0.8, click_delay=0, killswitch_key='q'):
+    minimize_cmd_window()  # Minimize the command prompt window before starting
+    
     # Set the template matching method
     method = cv2.TM_CCOEFF_NORMED
     
     while True:
-        minimize_cmd_window()  # Minimize the command prompt window
-        
         # Check if the killswitch key is pressed
         if keyboard.is_pressed(killswitch_key):
             print("Killswitch activated. Exiting the loop.")
@@ -66,8 +66,8 @@ def main():
     # List of image paths to search for on the screen
     # Replace these with the paths to your actual images
     image_paths = [
-        r"C:\Users\aaaa\Desktop\!Python tests (mine)\images-database\test1.png",
-        r"C:\Users\aaaa\Desktop\!Python tests (mine)\images-database\test2.png"
+        r"C:\Users\aaaa\Desktop\!Python tests (mine)\images-database\cookie.png",
+        r"C:\Users\aaaa\Desktop\!Python tests (mine)\images-database\golden.png"
     ]
 
     # Call the function with the list of image paths and optional parameters
