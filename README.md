@@ -28,4 +28,10 @@ This Python script searches for specific images on the screen and clicks on them
 - Adjust the threshold value as needed for accurate template matching.
 - This script may require adjustments based on the specific requirements of your task.
 
+### Contributing:
+Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+### Author:
+Made by [2cz5](https://github.com/2cz5). For any questions or suggestions, you can reach out to me on Discord:2cz5
+
 
