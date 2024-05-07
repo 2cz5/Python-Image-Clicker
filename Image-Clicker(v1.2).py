@@ -66,8 +66,8 @@ def main():
     # List of image paths to search for on the screen
     # Replace these with the paths to your actual images
     image_paths = [
-        r"C:\Users\aaaa\Desktop\!Python tests (mine)\images-database\cookie.png",
-        r"C:\Users\aaaa\Desktop\!Python tests (mine)\images-database\golden.png"
+        r"C:\Users\aaaa\Desktop\!Python tests (mine)\images-database\test1.png",
+        r"C:\Users\aaaa\Desktop\!Python tests (mine)\images-database\test2.png"
     ]
 
     # Call the function with the list of image paths and optional parameters
