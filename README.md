@@ -2,23 +2,23 @@
 
 ## (If you enjoy this scipt, download it, or find it interesting in any way please conisder giving the repo a star. It will help more people find it, and help the community in improving it.)
 
-# Changelog
-[v1.1] - 2024-05-07
-Added
+## Changelog
+### Added
+- Improved error handling to check if the image file exists before attempting to load it.
+- Separated main functionality into modular functions for better code organization and reusability.
+- Added comments to explain the purpose of each function and section of the code.
+- Made parameters such as threshold, click delay, and killswitch key configurable with default values.
+- Introduced a main function to encapsulate the script's execution logic and adhere to best practices.
 
-    1.Modularized the code into smaller functions for better organization and readability.
-    2.Added error handling to gracefully handle potential exceptions during image processing.
-    3.Added documentation comments (docstrings) to explain the functionality of each function.
-    4.Optimized certain parts of the code for better performance.
+### Changed
+- Updated path formatting to use forward slashes for better cross-platform compatibility.
+- Enhanced code readability by renaming variables and functions to more descriptive names.
 
-Changed
+### Removed
+- Removed hard-coded image paths to improve configurability. Users are now required to specify image paths as input.
 
-    1.Refactored the main loop to improve readability and maintainability.
-    2.Cleaned up unnecessary comments and redundant code.
+## [Version 1.2] - 2024-05-07
 
-Removed
-
-    3.Removed redundant comments and unnecessary print statements.
 
 
 ## Description
