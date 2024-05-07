@@ -1,3 +1,5 @@
+# | Made by 2cz5 | https://github.com/2cz5 | Discord:2cz5 (for questions etc..)
+
 import cv2
 import numpy as np
 import pyautogui
