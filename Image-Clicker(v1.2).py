@@ -4,10 +4,14 @@ import os
 import cv2
 import numpy as np
 import pyautogui
-import keyboard
+import threading
 import time
 import win32gui
 import win32con
+import keyboard
+
+# Global variable to indicate if the killswitch is activated
+killswitch_activated = False
 
 # Function to minimize the command prompt window (Windows-specific)
 def minimize_cmd_window():
@@ -19,18 +23,27 @@ def minimize_cmd_window():
     except Exception as e:
         print(f"Error minimizing command prompt window: {e}")
 
+# Function to monitor the killswitch key
+def monitor_killswitch(killswitch_key):
+    global killswitch_activated
+    while True:
+        if keyboard.is_pressed(killswitch_key):
+            print("Killswitch activated.")
+            killswitch_activated = True
+            break
+        time.sleep(0.1)
+
 # Function to search for images on the screen and click on them if found
-def search_and_click(images, threshold=0.8, click_delay=1, killswitch_key='q'):
+def search_and_click(images, threshold=0.8, click_delay=0.1, killswitch_key='q'):
     # Set the template matching method
     method = cv2.TM_CCOEFF_NORMED
-    
-    while True:
+
+    # Start monitoring the killswitch key in a separate thread
+    killswitch_thread = threading.Thread(target=monitor_killswitch, args=(killswitch_key,))
+    killswitch_thread.start()
+
+    while not killswitch_activated:
         minimize_cmd_window()  # Minimize the command prompt window
-        
-        # Check if the killswitch key is pressed
-        if keyboard.is_pressed(killswitch_key):
-            print("Killswitch activated. Exiting the loop.")
-            break
 
         # Capture the screen image
         screenshot = pyautogui.screenshot()
@@ -63,13 +76,15 @@ def search_and_click(images, threshold=0.8, click_delay=1, killswitch_key='q'):
                     print(f"Clicked on {image_path} at ({x}, {y})")
                     time.sleep(click_delay)  # Delay between clicks
 
+    print("Exiting the loop.")
+
 # Main function to execute the script
 def main():
     # List of image paths to search for on the screen
     # Replace these with the paths to your actual images
     image_paths = [
         r"path\to\image1.png",
-        r"path\to\image2.png",
+        r"path\to\image2.png"
     ]
 
     # Call the function with the list of image paths and optional parameters
