@@ -34,7 +34,7 @@ def monitor_killswitch(killswitch_key):
         time.sleep(0.1)
 
 # Function to search for images on the screen and click on them if found
-def search_and_click(images, threshold=0.8, click_delay=0.1, killswitch_key='q'):
+def search_and_click(images, threshold=0.8, click_delay=0.01, killswitch_key='q'):
     # Set the template matching method
     method = cv2.TM_CCOEFF_NORMED
 
@@ -75,6 +75,18 @@ def search_and_click(images, threshold=0.8, click_delay=0.1, killswitch_key='q')
                     pyautogui.click(x, y)
                     print(f"Clicked on {image_path} at ({x}, {y})")
                     time.sleep(click_delay)  # Delay between clicks
+                    
+                    # Check if killswitch is activated after each click
+                    if killswitch_activated:
+                        break
+
+            # Check if killswitch is activated after processing each image
+            if killswitch_activated:
+                break
+
+        # Check if killswitch is activated after processing all images
+        if killswitch_activated:
+            break
 
     print("Exiting the loop.")
 
@@ -83,8 +95,9 @@ def main():
     # List of image paths to search for on the screen
     # Replace these with the paths to your actual images
     image_paths = [
-        r"path\to\image1.png",
-        r"path\to\image2.png"
+        r"C:\path\to\image1.png",
+        r"C:\path\to\image2.png",
+        # Add more image paths as needed
     ]
 
     # Call the function with the list of image paths and optional parameters
