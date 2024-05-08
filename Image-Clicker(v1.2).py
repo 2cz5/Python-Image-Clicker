@@ -6,25 +6,27 @@ import numpy as np
 import pyautogui
 import keyboard
 import time
+import win32gui
+import win32con
 
 # Function to minimize the command prompt window (Windows-specific)
 def minimize_cmd_window():
     try:
-        import win32gui
-        import win32con
-        hwnd = win32gui.GetForegroundWindow()
-        win32gui.ShowWindow(hwnd, win32con.SW_MINIMIZE)
-    except ImportError:
-        pass  # If win32gui module is not available, ignore and proceed
+        # Find the command prompt window by its class name
+        hwnd = win32gui.FindWindow("ConsoleWindowClass", None)
+        if hwnd != 0:
+            win32gui.ShowWindow(hwnd, win32con.SW_MINIMIZE)
+    except Exception as e:
+        print(f"Error minimizing command prompt window: {e}")
 
 # Function to search for images on the screen and click on them if found
-def search_and_click(images, threshold=0.8, click_delay=0, killswitch_key='q'):
-    minimize_cmd_window()  # Minimize the command prompt window before starting
-    
+def search_and_click(images, threshold=0.8, click_delay=1, killswitch_key='q'):
     # Set the template matching method
     method = cv2.TM_CCOEFF_NORMED
     
     while True:
+        minimize_cmd_window()  # Minimize the command prompt window
+        
         # Check if the killswitch key is pressed
         if keyboard.is_pressed(killswitch_key):
             print("Killswitch activated. Exiting the loop.")
@@ -66,8 +68,8 @@ def main():
     # List of image paths to search for on the screen
     # Replace these with the paths to your actual images
     image_paths = [
-        r"C:\Users\aaaa\Desktop\!Python tests (mine)\images-database\test1.png",
-        r"C:\Users\aaaa\Desktop\!Python tests (mine)\images-database\test2.png"
+        r"path\to\image1.png",
+        r"path\to\image2.png",
     ]
 
     # Call the function with the list of image paths and optional parameters
