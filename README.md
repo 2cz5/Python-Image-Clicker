@@ -1,25 +1,23 @@
 # Image Search and Click Automation
 
-## (If you enjoy this scipt, download it, or find it interesting in any way please conisder giving the repo a star. It will help more people find it, and help the community in improving it.)
+# (If you enjoy this scipt, download it, or find it interesting in any way please conisder giving the repo a star. It will help more people find it, and help the community in improving it.)
 
-## Changelog
+# Changelog
+
 ### Added
-- Improved error handling to check if the image file exists before attempting to load it.
-- Separated main functionality into modular functions for better code organization and reusability.
-- Added comments to explain the purpose of each function and section of the code.
-- Made parameters such as threshold, click delay, and killswitch key configurable with default values.
-- Introduced a main function to encapsulate the script's execution logic and adhere to best practices.
+- Killswitch functionality to stop the script execution by pressing a specified key.
+- Error handling for minimizing the command prompt window.
+- Improved code readability and organization.
 
 ### Changed
-- Updated path formatting to use forward slashes for better cross-platform compatibility.
-- Enhanced code readability by renaming variables and functions to more descriptive names.
+- Refactored the `minimize_cmd_window` function to minimize just the command prompt.
+- Enhanced the `search_and_click` function to handle a large number of image paths efficiently.
 
-### Removed
-- Removed hard-coded image paths to improve configurability. Users are now required to specify image paths as input.
+### Fixed
+- Resolved issues with the killswitch not working properly.
+- Fixed bugs related to image path validation and error reporting.
 
-## [Version 1.2] - 2024-05-07
-
-
+## [1.2] - 5-8-24 3:33 PM CDT
 
 ## Description
 This Python script searches for specific images on the screen and clicks on them if found. It can be useful for automating tasks where specific images need to be located and interacted with on the screen, such as in game automation or UI testing.
