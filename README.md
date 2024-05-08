@@ -18,6 +18,13 @@
 - Fixed bugs related to image path validation and error reporting.
 
 ## [1.2] - 5-8-24 3:33 PM CDT
+-------------------------------------------------------------------------
+
+## Example|showcase: 
+
+https://github.com/2cz5/Python-Image-Clicker/assets/169117434/7f3543f7-27e7-48df-b9dd-9de5b7a152c6
+
+
 
 ## Description
 This Python script searches for specific images on the screen and clicks on them if found. It can be useful for automating tasks where specific images need to be located and interacted with on the screen, such as in game automation or UI testing.
