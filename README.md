@@ -1,61 +1,40 @@
-# Image Search and Click Automation
+# Automated Image Clicker
 
-# (If you enjoy this scipt, download it, or find it interesting in any way please conisder giving the repo a star. It will help more people find it, and help the community in improving it.)
+## Overview
+This Python script is designed to automate the process of searching for specific images on the screen and clicking on them when found. It utilizes computer vision techniques to locate images and the `pyautogui` library for simulating mouse clicks.
 
-# Changelog
-
-### Added
-- Killswitch functionality to stop the script execution by pressing a specified key.
-- Error handling for minimizing the command prompt window.
-- Improved code readability and organization.
-
-### Changed
-- Refactored the `minimize_cmd_window` function to minimize just the command prompt.
-- Enhanced the `search_and_click` function to handle a large number of image paths efficiently.
-
-### Fixed
-- Resolved issues with the killswitch not working properly.
-- Fixed bugs related to image path validation and error reporting.
-
-## [1.2] - 5-8-24 3:33 PM CDT
--------------------------------------------------------------------------
-
-## Example|showcase: 
-
-https://github.com/2cz5/Python-Image-Clicker/assets/169117434/7f3543f7-27e7-48df-b9dd-9de5b7a152c6
-
-
-
-## Description
-This Python script searches for specific images on the screen and clicks on them if found. It can be useful for automating tasks where specific images need to be located and interacted with on the screen, such as in game automation or UI testing.
-
-## IMPORTANT NOTE:This Python code is compatible with the Windows operating system. This is because it relies on the win32gui and win32con modules, which are specific to Windows. Additionally, it utilizes the pyautogui library, which is compatible with Windows, macOS, and Linux, but the specific functionality used in this code (screen capturing and clicking) is primarily intended for Windows. Therefore, while the script may technically run on other operating systems, its functionality may be limited or behave differently on non-Windows platforms.
+## Features
+- **Image Recognition**: Uses template matching to locate images on the screen.
+- **Killswitch**: Implements a killswitch functionality to stop the script execution.
+- **Logging**: Logs events and errors to a file for debugging and monitoring.
+- **Customizable**: Allows customization of parameters such as threshold, click delay, and killswitch key.
 
 ## Requirements
 - Python 3.x
 - OpenCV (`cv2`)
-- NumPy (`numpy`)
-- PyAutoGUI (`pyautogui`)
-- Keyboard (`keyboard`)
-- Win32gui (`win32gui`)
-- Win32con (`win32con`)
+- NumPy
+- PyAutoGUI
+- win32gui
+- keyboard
+
+## Installation
+1. Clone or download the repository.
+2. Install the required libraries using pip:
+
+pip install opencv-python numpy pyautogui pypiwin32 keyboard
 
 ## Usage
-1. Clone the repository to your local machine. (Or click on code, then download zip.)
-2. Ensure you have all the required libraries installed. You can install them using pip: pip install opencv-python numpy pyautogui keyboard pywin32
-3. Replace the paths in the `image_paths` list with the paths to your actual images.
-4. Run the script using command prompt
-5. Press the 'q' key to stop the script at any time.
+1. Modify the `image_paths` list in the script to include the paths of the images you want to search for.
+2. Optionally adjust parameters such as threshold, click delay, and killswitch key according to your requirements.
+3. Run the script: python automated_image_clicker.py   
+4. Press the killswitch key (default: 'q') to stop the script execution.
 
-## Notes
-- Make sure the images you want to search for are available in the specified paths.
-- Adjust the threshold value as needed for accurate template matching.
-- This script may require adjustments based on the specific requirements of your task.
+## Configuration
+- `threshold`: Adjusts the sensitivity of image recognition. Higher values result in stricter matching.
+- `click_delay`: Specifies the delay (in seconds) between consecutive clicks.
+- `killswitch_key`: Defines the key to activate the killswitch and terminate the script.
 
-### Contributing:
-Contributions are welcome! Feel free to open an issue or submit a pull request.
-
-### Author:
-Made by [2cz5](https://github.com/2cz5). For any questions or suggestions, you can reach out to me on Discord:2cz5
-
-
+## Credits
+- **Author**: 2cz5
+- **GitHub**: [2cz5](https://github.com/2cz5)
+- **Discord**: 2cz5 (for questions, feedback, etc.)
