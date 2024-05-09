@@ -32,7 +32,7 @@ pip install opencv-python numpy pyautogui pypiwin32 keyboard
 ## Usage
 1. Modify the `image_paths` list in the script to include the paths of the images you want to search for.
 2. Optionally adjust parameters such as threshold, click delay, and killswitch key according to your requirements.
-3. Run the script: python automated_image_clicker.py   
+3. Run the script: python Image-Clicker(v1.2).py
 4. Press the killswitch key (default: 'q') to stop the script execution.
 
 ## Configuration
