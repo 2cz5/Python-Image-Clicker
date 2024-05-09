@@ -1,4 +1,10 @@
-# Automated Image Clicker
+# Automated Image Clicking
+
+## Showcase|Example: 
+
+https://github.com/2cz5/Python-Image-Clicker/assets/169117434/ef68dd86-2a4e-45af-9071-87b176d65ba5
+
+
 
 ## Overview
 This Python script is designed to automate the process of searching for specific images on the screen and clicking on them when found. It utilizes computer vision techniques to locate images and the `pyautogui` library for simulating mouse clicks.
@@ -33,6 +39,9 @@ pip install opencv-python numpy pyautogui pypiwin32 keyboard
 - `threshold`: Adjusts the sensitivity of image recognition. Higher values result in stricter matching.
 - `click_delay`: Specifies the delay (in seconds) between consecutive clicks.
 - `killswitch_key`: Defines the key to activate the killswitch and terminate the script.
+
+### Contributing:
+Contributions are welcome! Feel free to open an issue or submit a pull request.
 
 ## Credits
 - **Author**: 2cz5
