@@ -1,6 +1,5 @@
 # | Made by 2cz5 | https://github.com/2cz5 | Discord:2cz5 (for questions etc..)
 
-import os
 import cv2
 import numpy as np
 import pyautogui
@@ -9,9 +8,15 @@ import time
 import win32gui
 import win32con
 import keyboard
+import os
+import logging
 
 # Global variable to indicate if the killswitch is activated
 killswitch_activated = False
+
+# Set up logging
+logging.basicConfig(filename='clicker.log', level=logging.INFO,
+                    format='%(asctime)s - %(levelname)s: %(message)s')
 
 # Function to minimize the command prompt window (Windows-specific)
 def minimize_cmd_window():
@@ -21,14 +26,14 @@ def minimize_cmd_window():
         if hwnd != 0:
             win32gui.ShowWindow(hwnd, win32con.SW_MINIMIZE)
     except Exception as e:
-        print(f"Error minimizing command prompt window: {e}")
+        logging.error(f"Error minimizing command prompt window: {e}")
 
 # Function to monitor the killswitch key
 def monitor_killswitch(killswitch_key):
     global killswitch_activated
     while True:
         if keyboard.is_pressed(killswitch_key):
-            print("Killswitch activated.")
+            logging.info("Killswitch activated.")
             killswitch_activated = True
             break
         time.sleep(0.1)
@@ -53,7 +58,7 @@ def search_and_click(images, threshold=0.8, click_delay=0.01, killswitch_key='q'
         # Iterate through each image in the database
         for image_path in images:
             if not os.path.exists(image_path):
-                print(f"Error: Image not found at '{image_path}'")
+                logging.error(f"Image not found at '{image_path}'")
                 continue  # Skip to the next image if the file doesn't exist
 
             # Load the image from the database
@@ -62,7 +67,7 @@ def search_and_click(images, threshold=0.8, click_delay=0.01, killswitch_key='q'
             # Perform template matching
             result = cv2.matchTemplate(screen_gray, template, method)
 
-            # Get the location of matches above a specified threshold
+            # Get the location of matches above the specified threshold
             loc = np.where(result >= threshold)
 
             # Click on the matched locations
@@ -73,9 +78,9 @@ def search_and_click(images, threshold=0.8, click_delay=0.01, killswitch_key='q'
 
                     # Click on the center of the matched template
                     pyautogui.click(x, y)
-                    print(f"Clicked on {image_path} at ({x}, {y})")
+                    logging.info(f"Clicked on {image_path} at ({x}, {y})")
                     time.sleep(click_delay)  # Delay between clicks
-                    
+
                     # Check if killswitch is activated after each click
                     if killswitch_activated:
                         break
@@ -88,7 +93,7 @@ def search_and_click(images, threshold=0.8, click_delay=0.01, killswitch_key='q'
         if killswitch_activated:
             break
 
-    print("Exiting the loop.")
+    logging.info("Exiting the loop.")
 
 # Main function to execute the script
 def main():
