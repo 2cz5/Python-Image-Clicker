@@ -1,8 +1,8 @@
 # Automated Image Clicking
 
-## Showcase|Example: 
+## Showcase|Example:
 
-https://github.com/2cz5/Python-Image-Clicker/assets/169117434/ef68dd86-2a4e-45af-9071-87b176d65ba5
+https://github.com/2cz5/Python-Image-Clicker/assets/169117434/c915386e-9d5f-44ef-9988-90ca2efb501b
 
 
 
